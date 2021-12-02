@@ -1,0 +1,34 @@
+# https://adventofcode.com/2021/day/2
+list_of_commands = []  #input goes in this list. I used https://arraythis.com/ to convert to CSV
+
+# part 1
+horizontal = 0
+depth = 0
+for command in list_of_commands:
+    store = command.split()
+    
+    match store[0]:
+        case "forward":
+            horizontal += int(store[1])
+        case "down":
+            depth += int(store[1])
+        case "up":
+            depth -= int(store[1])
+print(depth * horizontal)
+
+# part 2
+aim = 0
+horizontal = 0
+depth = 0
+for command in list_of_commands:
+    store = command.split()
+
+    match store[0]:
+        case "forward":
+            horizontal += int(store[1])
+            depth += int(store[1]) * aim
+        case "down":
+            aim += int(store[1])
+        case "up":
+            aim -= int(store[1])
+print(depth * horizontal)
