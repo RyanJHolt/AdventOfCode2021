@@ -1,0 +1,16 @@
+# https://adventofcode.com/2021/day/1
+list_of_inputs = [] #input goes in this list. I used https://arraythis.com/ to convert to CSV
+
+# part 1
+increases = 0
+for input_value in range(1, len(list_of_inputs)):
+    if list_of_inputs[input_value] > list_of_inputs[input_value - 1]:
+        increases += 1
+print(increases)
+
+# part 2
+increases = 0
+for input_value in range(1, len(list_of_inputs) - 2):
+    if sum(list_of_inputs[input_value:input_value + 3]) > sum(list_of_inputs[input_value - 1:input_value + 2]):
+        increases += 1
+print(increases)
