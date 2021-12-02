@@ -5,15 +5,15 @@ list_of_commands = []  #input goes in this list. I used https://arraythis.com/ t
 horizontal = 0
 depth = 0
 for command in list_of_commands:
-    store = command.split()
-    
-    match store[0]:
+    direction, number = command.split()
+
+    match direction:
         case "forward":
-            horizontal += int(store[1])
+            horizontal += int(number)
         case "down":
-            depth += int(store[1])
+            depth += int(number)
         case "up":
-            depth -= int(store[1])
+            depth -= int(number)
 print(depth * horizontal)
 
 # part 2
@@ -21,14 +21,14 @@ aim = 0
 horizontal = 0
 depth = 0
 for command in list_of_commands:
-    store = command.split()
+    direction, number = command.split()
 
-    match store[0]:
+    match direction:
         case "forward":
-            horizontal += int(store[1])
-            depth += int(store[1]) * aim
+            horizontal += int(number)
+            depth += int(number) * aim
         case "down":
-            aim += int(store[1])
+            aim += int(number)
         case "up":
-            aim -= int(store[1])
+            aim -= int(number)
 print(depth * horizontal)
