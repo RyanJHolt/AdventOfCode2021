@@ -1,10 +1,10 @@
 # https://adventofcode.com/2021/day/2
-list_of_commands = []  #input goes in this list. I used https://arraythis.com/ to convert to CSV
+commands = open("Day 2 Input.txt").readlines()
 
 # part 1
 horizontal = 0
 depth = 0
-for command in list_of_commands:
+for command in commands:
     direction, number = command.split()
 
     match direction:
@@ -20,7 +20,7 @@ print(depth * horizontal)
 aim = 0
 horizontal = 0
 depth = 0
-for command in list_of_commands:
+for command in commands:
     direction, number = command.split()
 
     match direction:
