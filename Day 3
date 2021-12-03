@@ -38,17 +38,15 @@ for i in range(length):
     most_common = ("1" if high_bits.count("1") >= high_bits.count("0") else "0")
     if len(ox_list) > 1:
         ox_list = [value for value in ox_list if value[i] == most_common]
-    print(ox_list)
 
     for current_value in co_list:
         low_bits += current_value[i]
     least_common = ("1" if low_bits.count("1") < low_bits.count("0") else "0")
     if len(co_list) > 1:
         co_list = [value for value in co_list if value[i] == least_common]
-    print(co_list)
 
 for i in range(length):
     ox_num += int(ox_list[0][i]) * (2 ** (length - 1 - i))
     co_num += int(co_list[0][i]) * (2 ** (length - 1 - i))
 
-print(ox_num, co_num, ox_num * co_num)
+print(ox_num * co_num)
