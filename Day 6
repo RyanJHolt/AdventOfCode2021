@@ -1,0 +1,30 @@
+file = open("Day 6 Input.txt")
+fishes = file.readline().split(",")
+fishes = [int(i) for i in fishes]
+# part 1
+days = 80
+print("Initial state: ", fishes)
+for day in range(days):
+    for fish in range(len(fishes)):
+        if fishes[fish] == 0:
+            fishes[fish] = 7
+            fishes.append(8)
+        fishes[fish] -= 1
+    print(f"day {day+1}: {fishes}",len(fishes), "fish present")
+
+print("There are", len(fishes), "fish present")
+
+# part 2
+days = 256
+
+time = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+# time left = [0 , 1 , 2, 3, 4 , 5, 6,7,8]
+for fish in fishes:
+    time[fish] += 1
+
+print(time)
+for day in range(days):
+    new_time = [time[1], time[2], time[3], time[4], time[5], time[6], time[7] + time[0], time[8], time[0]]
+    time = new_time
+
+print(sum(time))
