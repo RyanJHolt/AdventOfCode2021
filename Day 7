@@ -1,0 +1,30 @@
+file = open("Day 7 Input.txt")
+crabs = file.readline().split(",")
+crabs = [int(i) for i in crabs]
+# part 1
+highest_x = max(crabs)
+lowest_x = min(crabs)
+fuel = 10000000000000000000
+cheapest = 0
+# part 1
+for i in range(lowest_x, highest_x + 1):
+    cur_fuel = 0
+    cur_cheapest = 0
+    for crab in crabs:
+        cur_fuel += abs(i - crab)
+    if cur_fuel < fuel:
+        fuel = cur_fuel
+        cheapest = i
+print(fuel, cheapest)
+# part 2
+for i in range(lowest_x, highest_x + 1):
+    cur_fuel = 0
+    cur_cheapest = 0
+    for crab in crabs:
+        k = 0
+        n = abs(i - crab)
+        cur_fuel += (n+1) * (n/2)
+    if cur_fuel < fuel:
+        fuel = cur_fuel
+        cheapest = i
+print(fuel, cheapest)
